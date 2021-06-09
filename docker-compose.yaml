@@ -4,9 +4,10 @@ services:
     container_name: node
     build:
       context: ./backend
-    # command: npm run dev
+    command: npm run dev
     volumes:
-      - ./backend:/src
+      - ./backend:/backend
+      - back_node_modules:/backend
     ports:
       - 4000:4000
     tty: true
@@ -17,8 +18,8 @@ services:
       context: ./frontend
     command: yarn start
     volumes:
-      - ./frontend:/src
-      - front_node_modules:/src/node_modules
+      - ./frontend:/frontend
+      - front_node_modules:/frontend/node_modules
     ports:
       - 3000:3000
     environment:
@@ -26,4 +27,5 @@ services:
     tty: true
 
 volumes:
+  back_node_modules:
   front_node_modules:

@@ -1,5 +1,5 @@
 FROM node:16.3.0-stretch
-ENV APP_ROOT /src/
+ENV APP_ROOT /backend/
 
 WORKDIR $APP_ROOT
 
