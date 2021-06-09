@@ -1,0 +1,29 @@
+version: "3"
+services:
+  node:
+    container_name: node
+    build:
+      context: ./backend
+    # command: npm run dev
+    volumes:
+      - ./backend:/src
+    ports:
+      - 4000:4000
+    tty: true
+
+  react:
+    container_name: react
+    build:
+      context: ./frontend
+    command: yarn start
+    volumes:
+      - ./frontend:/src
+      - front_node_modules:/src/node_modules
+    ports:
+      - 3000:3000
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    tty: true
+
+volumes:
+  front_node_modules:
