@@ -4,7 +4,7 @@ export const createRouter = (): Router => {
 	const router: Router = Router();
 
 	router.get("/", (req: Request, res: Response) => {
-		res.status(200).send({ responce: "I am alive" });
+		res.status(200).sendFile(__dirname + "/index.html");
 	});
 
 	return router;
