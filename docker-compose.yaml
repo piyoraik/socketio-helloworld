@@ -7,25 +7,24 @@ services:
     command: npm run dev
     volumes:
       - ./backend:/backend
-      - back_node_modules:/backend
+      # - back_node_modules:/backend
     ports:
       - 4000:4000
     tty: true
 
-  react:
-    container_name: react
-    build:
-      context: ./frontend
-    command: yarn start
-    volumes:
-      - ./frontend:/frontend
-      - front_node_modules:/frontend/node_modules
-    ports:
-      - 3000:3000
-    environment:
-      - CHOKIDAR_USEPOLLING=true
-    tty: true
-
-volumes:
-  back_node_modules:
-  front_node_modules:
+  # react:
+  #   container_name: react
+  #   build:
+  #     context: ./frontend
+  #   command: yarn start
+  #   volumes:
+  #     - ./frontend:/frontend
+  #     - front_node_modules:/frontend/node_modules
+  #   ports:
+  #     - 3000:3000
+  #   environment:
+  #     - CHOKIDAR_USEPOLLING=true
+  #   tty: true
+# volumes:
+#   back_node_modules:
+#   front_node_modules:
